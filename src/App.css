@@ -1,0 +1,25 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap'); */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+
+    /* For primary colors */
+    --primary-cyan: 180 66% 49%;
+    --primary-dark-violet: 257 27% 26%;
+
+    /* For secondary colors */
+    --secondary-red : 0 87% 67%;
+
+    /* For tertiary colors */
+    --neutral-gray: 0 0% 75%;
+    --neutral-grayish-violet: 257 7% 63%;
+    --neutral-very-dark-blue: 255 11% 22%;
+    --neutral-very-dark-violet: 260 8% 14%;
+    --neutral-white: 0 0% 100%;
+    --neutral-black: 0 0% 0%
+
+  }
+}
