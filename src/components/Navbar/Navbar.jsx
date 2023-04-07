@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
-  // const [toggle, setToggle] = useState(false)
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
   return (
@@ -18,7 +17,7 @@ const Navbar = () => {
           </div>
           <div className="grow">
             <button
-              className="fixed top-8 sm:right-8 right-5 z-50 flex items-center justify-center w-10 h-10 rounded-full bg-gray-900 text-white focus:outline-none md:hidden"
+              className={`fixed top-8 sm:right-8 right-5 z-50 flex items-center justify-center w-10 h-10 rounded-full bg-gray-900 text-white focus:outline-none md:hidden`}
               onClick={toggleMenu}
             >
               <motion.span
@@ -60,9 +59,7 @@ const Navbar = () => {
               )}
             </button>
             <motion.ul
-              className={`fixed rounded top-1/3 p-4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-darkviolet text-base w-[90%] m-auto${
-                isOpen ? "block" : "hidden"
-              }`}
+              className={`fixed rounded top-1/3 p-4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-darkviolet text-base w-[90%] m-auto md:hidden`}
               initial="closed"
               variants={{
                 closed: { opacity: 0 },
