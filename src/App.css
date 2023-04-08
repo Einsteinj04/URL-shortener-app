@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,7 +19,11 @@
     --neutral-very-dark-blue: 255 11% 22%;
     --neutral-very-dark-violet: 260 8% 14%;
     --neutral-white: 0 0% 100%;
-    --neutral-black: 0 0% 0%
+    --neutral-black: 0 0% 0%;
+    --slate: 215 25% 27%
 
   }
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
 }

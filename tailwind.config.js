@@ -11,12 +11,13 @@ module.exports = {
       red: "hsl(var(--secondary-red))",
 
       // Neutral colors
-      gray:"hsl(var(--neutral-gray))",
-      grayishviolet:"hsl(var(--neutral-grayish-violet))",
+      gray: "hsl(var(--neutral-gray))",
+      grayishviolet: "hsl(var(--neutral-grayish-violet))",
       verydarkblue: "hsl(var(--neutral-very-dark-blue))",
       verydarkviolet: "hsl(var(--neutral-very-dark-violet))",
       white: "hsl(var(--neutral-white))",
-       black: "hsl(var(--neutral-black))"
+      black: "hsl(var(--neutral-black))",
+      slate: "hsl(var(--slate))",
     },
     fontFamily: {
       sans: ["Poppins", "sans-serif"],
