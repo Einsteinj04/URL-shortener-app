@@ -9,7 +9,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   return (
     <div>
-      <div className="fixed bg-white w-screen top-0 px-5 pt-8 pb-4 sm:px-8  drop-shadow-lg border-slate z-1000">
+      <div className="fixed bg-white w-screen top-0 px-5 pt-8 pb-4 sm:px-8  drop-shadow-lg border-slate z-50">
         <div className="flex gap-x-14 items-center text-lg font-sans">
           <div
           // className="md:static fixed top-10 sm:left-8 left-5"
