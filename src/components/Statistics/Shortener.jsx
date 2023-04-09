@@ -1,17 +1,24 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import Img from '../../images/bg-boost-desktop.svg'
 import axios from 'axios'
+import { MdDelete } from "react-icons/md";
+import { IconContext } from "react-icons";
+
 
 const Shortener = () => {
   const [inputData, setInputData] = useState('')
   const [responseData, setResponseData] = useState([])
   const [noInputField, setNoInputField] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
+  const [copyToClipboard, setCopyToClipboard] = useState(false)
   const handleInput = (e) => {
     setInputData(e.target.value)
   }
   const sendPostRequest = async () => {
     try {
+      setIsLoading(true)
       if (!inputData) {
+        setIsLoading(false);
         setNoInputField(false)
         return;
       }
@@ -20,11 +27,33 @@ const Shortener = () => {
       let response = await axios.post(
         `https://api.shrtco.de/v2/shorten?url=${url}`
       );
+      console.log(response)
+      setIsLoading(false)
       setResponseData([...responseData, response.data.result.full_short_link]);
-      // console.log(responseData)
     } catch (error) {
-      console.log(error)
+      console.log(error.response.data.error_code)
     }
+  }
+  const deleteLink = (index) => {
+    const newArray = [...responseData]
+    newArray.splice(index, 1);
+    setResponseData(newArray)
+  }
+  const copyClipboard = (event,index) => {
+    const textToCopy = responseData[index]
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        event.target.innerText = "Copied!";
+        event.target.style.backgroundColor = "hsl(255, 11%, 22%)";
+        setTimeout(() => {
+          event.target.innerText = "Copy";
+          event.target.style.backgroundColor = "hsl(180 ,66% ,49%)";
+        }, 2000);
+      })
+      .catch((error) => {
+        console.error(`Could not copy ${textToCopy} to clipboard: `, error);
+      });
   }
   return (
     <div>
@@ -46,20 +75,28 @@ const Shortener = () => {
         <button
           className="bg-cyan text-white relative rounded md:p-4 p-2 self-start md:w-fit w-full"
           onClick={sendPostRequest}
+          // disabled={!isLoading ?"false" :"true"}
         >
-          Shorten It!
+          {isLoading ? "Loading...": 'Shorten It!'}
         </button>
       </div>
-      {responseData.map(data => {
+      {responseData.map((data,index) => {
         return (
-          <div className="w-full bg-white rounded p-4 text-black my-3 flex flex-col md:flex-row justify-between md:items-center gap-y-3">
+          <div className="w-full bg-white rounded p-4 text-black my-3 flex flex-col md:flex-row justify-between md:items-center gap-y-2 relative" key={index}>
             <div className="text-left bg-white">{inputData}</div>
-            <div className='md:hidden block w-full h-px bg-gray'></div>
+            <div className="md:hidden block w-full h-px bg-gray"></div>
             <div className="flex md:flex-row flex-col gap-x-4 md:items-center bg-white">
               <div className="text-cyan text-left p-2">{data}</div>
-              <button className="text-white bg-cyan rounded px-6 py-2 w-full">
+              <button className="text-white bg-cyan rounded px-6 py-2 w-full"
+                onClick={(event)=>{copyClipboard(event,index)}}
+              >
                 Copy
               </button>
+              <IconContext.Provider value={{ color: "red", size: "1.5em" }}>
+                <button className="ml-2 text-xl absolute -right-4 -bottom-3 rounded-full bg-white " onClick={()=>{deleteLink(index)}}>
+                  <MdDelete />
+                </button>
+              </IconContext.Provider>
             </div>
           </div>
         );

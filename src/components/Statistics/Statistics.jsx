@@ -8,7 +8,7 @@ import Icon3 from "../../images/icon-fully-customizable.svg";
 
 const Statistics = () => {
   return (
-    <div className="bg-gray relativ px-5 sm:px-8 z-10">
+    <div className="bg-gray relativ px-5 sm:px-8 z-10 ">
       <div className="absolut left-0 right-0 relative -top-10 m-auto md:w-[60%] w-[90%] z-10">
         <Shortener />
       </div>
@@ -20,7 +20,7 @@ const Statistics = () => {
           Track how your links are performing across the web with our advanced
           statistics dashboard.
         </p>
-        <div className="flex md:flex-row flex-col gap-6 relative">
+        <div className="flex md:flex-row flex-col md:gap-6 gap-20 relativ">
           <Cards
             icon={Icon1}
             title={"Brand Recognition"}

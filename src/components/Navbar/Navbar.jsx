@@ -134,8 +134,7 @@ const Navbar = () => {
                     </IconContext.Provider>
                   ) : (
                     <IconContext.Provider
-                      value={{ color: "gray", size: "1.5em" }}
-                    >
+                      value={{ color: "gray", size: "1.5em" }} >
                       <div>
                         <FiMenu className="ml-2 text-xl" />
                       </div>
