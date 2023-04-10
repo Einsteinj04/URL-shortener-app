@@ -9,15 +9,15 @@ import Icon3 from "../../images/icon-fully-customizable.svg";
 
 const Statistics = () => {
   return (
-    <div className="bg-gray z-10 pb-20 h-fit sm:px-10 px-5">
+    <div className="bg-gray z-10 pb-20 h-fit sm:px-10 px-5 dark:bg-verydarkblue">
       <div className=" left-0 right-0 relative -top-10 m-auto md:w-[60%] w-[90%] z-10">
         <Shortener />
       </div>
       <div className="w-full ">
-        <h2 className="text-center md:text-4xl font-bold text-3xl md:p-6 p-3 md:pt-[5%] pt-[10%] relative">
+        <h2 className="text-center md:text-4xl font-bold text-3xl md:p-6 p-3 md:pt-[5%] pt-[10%] relative dark:text-white text-[#34313D]">
           Advanced Statistics
         </h2>
-        <p className="text-center text-slate md:text-xl max-w-[500px] mx-auto pb-10">
+        <p className="text-center text-slate md:text-xl max-w-[500px] mx-auto pb-10 dark:text-gray">
           Track how your links are performing across the web with our advanced
           statistics dashboard.
         </p>

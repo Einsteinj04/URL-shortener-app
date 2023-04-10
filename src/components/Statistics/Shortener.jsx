@@ -67,7 +67,7 @@ const Shortener = () => {
   }
   return (
     <div>
-      <div className="md:p-8 p-3 flex flex-col md:flex-row bg-verydarkblue rounded z-10 md:gap-6 gap-3 relative max-h-[300%]">
+      <div className="md:p-8 p-3 flex flex-col md:flex-row bg-verydarkblue rounded z-10 md:gap-6 gap-3 relative max-h-[300%] dark:bg-darkviolet">
         <img
           src={Img}
           className="absolute overflow-hidden h-full w-full top-0 right-0 left-0 bottom-0 rounded"
@@ -76,7 +76,7 @@ const Shortener = () => {
           <input
             type="text"
             placeholder="Shorten a link here..."
-            className={`relative w-full rounded md:p-4 p-2 mb-2 ${
+            className={`relative w-full rounded md:p-4 p-2 mb-2 dark:bg-gray dark:text-verydarkviolet ${
               !noInputField ? "border-2 border-red" : ""
             }`}
             value={inputData}
@@ -100,14 +100,14 @@ const Shortener = () => {
       {responseData.map((data, index) => {
         return (
           <div
-            className="w-full bg-white rounded p-4 text-black my-3 flex flex-col md:flex-row justify-between md:items-center gap-y-2 relative drop-shadow-lg z-10"
+            className="w-full bg-white rounded p-4 text-black my-3 flex flex-col md:flex-row justify-between md:items-center gap-y-2 relative drop-shadow-lg z-10 dark:bg-verydarkviolet"
             key={index}
           >
-            <div className="text-left bg-white md:max-w-[450px] w-full break-words">
+            <div className="text-left bg-white md:max-w-[450px] w-full break-words dark:bg-verydarkviolet dark:text-gray">
               {inputArray[index]}
             </div>
             <div className="md:hidden block w-full h-px bg-gray"></div>
-            <div className="flex md:flex-row flex-col gap-x-4 md:items-center bg-white">
+            <div className="flex md:flex-row flex-col gap-x-4 md:items-center bg-white dark:bg-verydarkviolet">
               <div className="text-cyan text-left p-2">{data}</div>
               <button
                 className="text-white bg-cyan rounded px-6 py-2 w-full"
@@ -119,7 +119,7 @@ const Shortener = () => {
               </button>
               <IconContext.Provider value={{ color: "red", size: "1.5em" }}>
                 <button
-                  className="ml-2 text-xl absolute -right-4 -bottom-3 rounded-full bg-white "
+                  className="ml-2 text-xl absolute -right-4 -bottom-3 rounded-full bg-white dark:bg-verydarkviolet"
                   onClick={() => {
                     deleteLink(index);
                   }}
